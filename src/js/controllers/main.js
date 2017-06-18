@@ -14,11 +14,11 @@ function MainCtrl() {
   vm.activeRobot = null;
   vm.moveInput = null;
   vm.direction = null;
-  const compassArray = ['N','S','E','W'];
+  const compassArray = ['N','E','S','W'];
   const directionArray = [
                           [0, 1], // N
-                          [0,-1], // S
                           [1, 0], // E
+                          [0,-1], // S
                           [-1,0] //  W
                         ];
 
@@ -71,11 +71,18 @@ function MainCtrl() {
     let newRefs = refs;
 
     vm.moveInput.split('').forEach((letter) => {
+      let index = compassArray.indexOf(vm.direction);
+
       if( letter === 'F') {
-        const index = compassArray.indexOf(vm.direction);
         xCord += directionArray[index][0];
         yCord += directionArray[index][1];
         newRefs = 'x'.concat(xCord, 'y', yCord);
+      } else if ( letter === 'R') {
+        if (index === 3) index = -1;
+        vm.direction = compassArray[index + 1];
+      } else if ( letter === 'L') {
+        if (index === 0) index = 4;
+        vm.direction = compassArray[index - 1];
       }
     });
 
