@@ -2,8 +2,8 @@
 <html ng-app="marsRobots">
   <head>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <meta name=viewport content="width=device-width, initial-scale=1" charset="utf-8">
-    <title>New Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title> Mars Robots</title>
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -12,10 +12,17 @@
   <body>
     <main ng-controller="MainCtrl as main">
 
-      <ul ng-repeat="rows in main.all" ng-class="">
-        <li ng-repeat="cells in main.all" ng-class="cell"></li>
+      <ul ng-repeat="row in main.rows track by $index" class="row{{ main.height - 1 - $index}}">
+        <li ng-repeat="cell in main.columns track by $index" class="cell x{{ $index }} y{{ main.height - 1 - $parent.$index }}">  {{ row }}</li>
       </ul>
-
+      <form class="" action="index.html" ng-submit="main.add()">
+        <input type="text" name="" value="" placeholder="Robot co-ordinates (X-Y-DIRECTION eg. 12-31-N)">
+        <input type="text" name="" value="" placeholder="Robot instructs (eg.FRRFLLFFRRFLL)">
+        <button type="button" name="button"></button>
+      </form>
+      <!-- <form name="main.donutForm" ng-submit="main.add()" novalidate>
+        <input type="text" name="flavor" id="flavor" placeholder="What is your donut flavor?" ng-model="main.donut.flavor" required ng-pattern="/strawberry|chocolate|apple|custard/">
+      </form> -->
     </main>
   </body>
 </html>

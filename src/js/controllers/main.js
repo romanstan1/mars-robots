@@ -6,8 +6,12 @@ MainCtrl.$inject = [];
 function MainCtrl() {
   const vm = this;
 
+  vm.height = 30;
+  vm.width = 50;
 
-  vm.rows = 40;
-  vm.columns = 40;
+
+  vm.rows = new Array(vm.height);
+  vm.columns = new Array(vm.width);
+
 
 }
