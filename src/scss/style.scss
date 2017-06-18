@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 body {
-  text-align: center;
-  color: red;
+
+}
+
+
+main {
+  background: grey;
+}
+
+ul {
+  font-size: 0px;
+  li.cell {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+  }
 }

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="marsRobots">
   <head>
-    <base href="/">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <meta name=viewport content="width=device-width, initial-scale=1" charset="utf-8">
     <title>New Project</title>
     <!-- inject:js -->
@@ -13,7 +12,11 @@
     <!-- endinject -->
   </head>
   <body>
-    <main ui-view class="container">
+    <main ng-controller="MainCtrl as main">
+
+      <ul ng-repeat="rows in main.all" ng-class="">
+        <li ng-repeat="cells in main.all" ng-class="cell"></li>
+      </ul>
 
     </main>
   </body>

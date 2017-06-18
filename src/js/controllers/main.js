@@ -1,10 +1,13 @@
 angular
   .module('marsRobots')
-  .controller('IndexCtrl', IndexCtrl);
+  .controller('MainCtrl', MainCtrl);
 
-IndexCtrl.$inject = [];
-function IndexCtrl() {
+MainCtrl.$inject = [];
+function MainCtrl() {
   const vm = this;
 
+
+  vm.rows = 40;
+  vm.columns = 40;
 
 }
