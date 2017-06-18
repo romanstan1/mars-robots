@@ -29,6 +29,9 @@ section {
       background: #ccc;
       font-size: 0px;
     }
+    li.oldRobot {
+      background: #9ca8bc;
+    }
     li.activeRobot {
       background: dodgerblue;
     }
@@ -43,7 +46,7 @@ section.outputs {
   width: 200px;
   height: calc(30 * 15px);
   position: relative;
-  border: 4px solid tomato;
+  border: 3px solid tomato;
   margin-left: 20px;
   top: 0;
   font-size: 10px;
@@ -66,14 +69,12 @@ section.forms {
     display: block;
     font-size: 0;
     width: 750px;
-    background: grey;
     input {
       height: 35px;
       width: 60%;
       text-indent: 5px;
       outline: none;
-      border: 4px solid tomato;
-      //bottom: 8px;
+      border: 3px solid tomato;
       margin-left: 5%;
       position: relative;
       display: inline-block;
@@ -81,6 +82,7 @@ section.forms {
 
     }
     button {
+      background: white;
       display: inline-block;
       cursor: pointer;
       width: 20%;
@@ -88,10 +90,11 @@ section.forms {
       margin-left: 10%;
       margin-right: 5%;
       outline: none;
-      border: 4px solid tomato;
+      border: 3px solid tomato;
       position: relative;
       bottom: 1px;
-      // margin-top: -1px;
+      text-transform: uppercase;
+      font-weight: bold;
     }
   }
 }
