@@ -12,8 +12,15 @@ function MainCtrl() {
   vm.rows = new Array(vm.height);
   vm.columns = new Array(vm.width);
   vm.activeRobot = null;
-  vm.output = null;
+  vm.moveInput = null;
   vm.direction = null;
+  const compassArray = ['N','S','E','W'];
+  const directionArray = [
+                          [0, 1], // N
+                          [0,-1], // S
+                          [1, 0], // E
+                          [-1,0] //  W
+                        ];
 
   let cleanBoard = true;
 
@@ -41,7 +48,7 @@ function MainCtrl() {
 
     const activeRobot = angular.element( document.querySelector( `#x${xCord}y${yCord}` ));
     activeRobot.addClass('activeRobot');
-    
+
     cleanBoard = false;
 
     // console.log(activeRobot);
@@ -55,7 +62,43 @@ function MainCtrl() {
   function moveRobot() {
     const activeRobot = angular.element( document.querySelector( '.activeRobot' ));
     activeRobot.removeClass('activeRobot');
-    console.log(activeRobot);
+    //activeRobot[0].id
+
+    const refs = activeRobot[0].id.split(/x|y/);
+    let xCord = parseInt(refs[1]);
+    let yCord = parseInt(refs[2]);
+
+    let newRefs = refs;
+
+    vm.moveInput.split('').forEach((letter) => {
+      if( letter === 'F') {
+        const index = compassArray.indexOf(vm.direction);
+        xCord += directionArray[index][0];
+        yCord += directionArray[index][1];
+        newRefs = 'x'.concat(xCord, 'y', yCord);
+      }
+    });
+
+    console.log(newRefs);
+    const newActiveRobot = angular.element( document.querySelector( `#${newRefs}` ));
+    newActiveRobot.addClass('activeRobot');
+
+
+
+
+
+
+    // console.log(directionArray[index]);
+
+    // vm.moveInput.forEach( letter => {
+    //   console.log(letter);
+    // });
+
+          // +1
+    //-1     // +1
+         //-1
+    //if(vm.moveInput === "N")
+
   }
   vm.moveRobot = moveRobot;
 }
