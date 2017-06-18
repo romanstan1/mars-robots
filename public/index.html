@@ -17,10 +17,15 @@
       <ul ng-repeat="row in main.rows track by $index" class="row{{ main.height - 1 - $index}}">
         <li ng-repeat="cell in main.columns track by $index" class="cell x{{ $index }} y{{ main.height - 1 - $parent.$index }}">  {{ row }}</li>
       </ul>
-      <form class="" action="index.html" ng-submit="main.add()">
-        <input type="text" name="" value="" placeholder="Robot co-ordinates (X-Y-DIRECTION eg. 12-31-N)">
-        <input type="text" name="" value="" placeholder="Robot instructs (eg.FRRFLLFFRRFLL)">
-        <button type="button" name="button"></button>
+
+      <form ng-submit="main.createRobot()">
+        <input type="text" placeholder="Robot co-ordinates (X-Y-DIRECTION eg. 12-31-N)" ng-model="main.activeRobot">
+        <button>Create Robot</button>
+      </form>
+
+      <form ng-submit="main.moveRobot()">
+        <input type="text" placeholder="Robot instructs (eg.FRRFLLFFRRFLL)" ng-model="main.output">
+        <button>Move Robot</button>
       </form>
       <!-- <form name="main.donutForm" ng-submit="main.add()" novalidate>
         <input type="text" name="flavor" id="flavor" placeholder="What is your donut flavor?" ng-model="main.donut.flavor" required ng-pattern="/strawberry|chocolate|apple|custard/">
