@@ -14,9 +14,24 @@
   <body>
     <main ng-controller="MainCtrl as main">
       <section>
+
+        <!-- <ul ng-repeat="row in main.rows track by $index" class="yAxis">
+          <li class="cell"> {{ $index}}</li>
+        </ul> -->
+
         <ul ng-repeat="row in main.rows track by $index" class="row{{ main.height - 1 - $index}}">
-          <li ng-repeat="cell in main.columns track by $index" class="cell" id="x{{ $index + 10 }}y{{ main.height + 9 - $parent.$index }}">  {{ row }}</li>
+          <li ng-repeat="cell in main.columns track by $index" class="cell" id="x{{ $index + 10 }}y{{ main.height + 9 - $parent.$index }}" ng-style="$index === 0 && {'color':'rgba(0, 0, 0, 1)'} ">{{ $parent.$index }}</li>
         </ul>
+
+        <!-- <ul class="yAxis" ng-repeat="row in main.rows track by $index">
+          <li>{{ $index }} </li>
+        </ul> -->
+
+        <ul class="xAxis">
+          <li ng-repeat="cell in main.columns track by $index" class="cell axis">  {{ $index }}</li>
+        </ul>
+
+
       </section>
 
       <section class="outputs" id="hello">

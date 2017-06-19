@@ -11,8 +11,8 @@ body {
 main {
   // background: grey;
   display: block;
-  width: 95%;
-  margin: 2% auto;
+  width: 93%;
+  margin: 3% auto;
 }
 section {
   top: 0;
@@ -27,13 +27,34 @@ section {
       width: 15px;
       height: 15px;
       background: #ccc;
-      font-size: 0px;
+      font-size: 10px;
+      color:rgba(0, 0, 0, 0);
+      text-indent: -20px;
+      text-align: left;
     }
     li.oldRobot {
       background: #9ca8bc;
     }
     li.activeRobot {
       background: dodgerblue;
+    }
+    li.axis {
+      border-top: 2px solid black;
+      height: 5px;
+      line-height: 25px;
+      font-size: 10px;
+      background: white;
+      text-align: center;
+      color:rgba(0, 0, 0, 1);
+    }
+  }
+
+  ul.yAxis {
+    background: red;
+    width: 15px;
+    li.cell {
+      background: green;
+      display: block;
     }
   }
 }

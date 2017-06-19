@@ -76,6 +76,8 @@ function MainCtrl() {
       if( letter === 'F') {
         xCord += directionArray[index][0];
         yCord += directionArray[index][1];
+        console.log(xCord);
+        console.log(yCord);
         newRefs = 'x'.concat(xCord, 'y', yCord);
       } else if ( letter === 'R') {
         if (index === 3) index = -1;
