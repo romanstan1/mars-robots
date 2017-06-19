@@ -98,7 +98,7 @@ function MainCtrl() {
     });
 
 
-    const outputString =(lastXCord-10).toString() + "-" + (lastYCord-10).toString() + "-" + vm.direction + lostVariable;
+    const outputString =(lastXCord-10).toString() + "-" + (lastYCord-10).toString() + "-" + vm.direction + " " + lostVariable;
     vm.outputs.push(outputString);
     if (vm.outputs.length > 25) vm.outputs.shift();
     const newActiveRobot = angular.element( document.querySelector( `#${newRefs}` ));
