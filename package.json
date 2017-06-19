@@ -4,8 +4,7 @@
   "description": "New Project",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && gulp deploy",
-    "start": "node index"
+    "postinstall": "bower install && gulp deploy"
   },
   "author": "Roman Stankiewwicz <hello@romanstan.xyz>",
   "license": "ISC",
