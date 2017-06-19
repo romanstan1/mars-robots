@@ -70,6 +70,9 @@ function MainCtrl() {
     let yCord = parseInt(refs[2]);
 
     let newRefs = refs;
+    let lostVariable = "";
+    let lastXCord = xCord;
+    let lastYCord = yCord;
 
     vm.moveInput.split('').forEach((letter) => {
       let index = compassArray.indexOf(vm.direction);
@@ -77,9 +80,13 @@ function MainCtrl() {
       if( letter === 'F') {
         xCord += directionArray[index][0];
         yCord += directionArray[index][1];
-        // console.log(xCord);
-        // console.log(yCord);
-        newRefs = 'x'.concat(xCord, 'y', yCord);
+
+          if( xCord>59 || xCord <10 || yCord > 39 || yCord < 10 ) lostVariable = "LOST";
+          else {
+            lastXCord = xCord;
+            lastYCord = yCord;
+          }
+
       } else if ( letter === 'R') {
         if (index === 3) index = -1;
         vm.direction = compassArray[index + 1];
@@ -87,33 +94,15 @@ function MainCtrl() {
         if (index === 0) index = 4;
         vm.direction = compassArray[index - 1];
       }
+      newRefs = 'x'.concat(xCord, 'y', yCord);
     });
-    const outputString =(xCord-10).toString() + (yCord-10).toString() + vm.direction;
-    // console.log(xCord - 10);
-    // console.log(yCord - 10);
-    // console.log(vm.direction);
+
+
+    const outputString =(lastXCord-10).toString() + "-" + (lastYCord-10).toString() + "-" + vm.direction + lostVariable;
     vm.outputs.push(outputString);
-    console.log(outputString);
-    console.log(vm.outputs);
+    if (vm.outputs.length > 25) vm.outputs.shift();
     const newActiveRobot = angular.element( document.querySelector( `#${newRefs}` ));
     newActiveRobot.addClass('activeRobot');
-
-
-
-
-
-
-    // console.log(directionArray[index]);
-
-    // vm.moveInput.forEach( letter => {
-    //   console.log(letter);
-    // });
-
-          // +1
-    //-1     // +1
-         //-1
-    //if(vm.moveInput === "N")
-
   }
   vm.moveRobot = moveRobot;
 }

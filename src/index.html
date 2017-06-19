@@ -36,13 +36,13 @@
         <h2>   Output <br> Co-ordinates</h2>
 
         <ul>
-          <li ng-repeat="output in main.outputs "> {{ output }}</li>
+          <li ng-repeat="output in main.outputs track by $index"> {{ output }}</li>
         </ul>
       </section>
 
       <section class="forms">
         <form ng-submit="main.createRobot()">
-          <input type="text" placeholder="Robot co-ordinates and direction (XX-YY-D eg. 28-07-N)" ng-model="main.activeRobot">
+          <input type="text" placeholder="Robot co-ordinates and direction (X-Y-D eg. 28-7-N)" ng-model="main.activeRobot">
           <button>Create Robot</button>
         </form>
 
