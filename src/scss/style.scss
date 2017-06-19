@@ -11,8 +11,8 @@ body {
 main {
   // background: grey;
   display: block;
-  width: 93%;
-  margin: 3% auto;
+  width: 95%;
+  margin: 2% auto;
 }
 section {
   top: 0;
@@ -24,8 +24,9 @@ section {
     font-size: 0px;
     li.cell {
       display: inline-block;
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
+      margin: 1px;
       background: #ccc;
       font-size: 10px;
       color:rgba(0, 0, 0, 0);
@@ -39,13 +40,15 @@ section {
       background: dodgerblue;
     }
     li.axis {
-      border-top: 2px solid black;
-      height: 5px;
+      // border-top: 2px solid black;
+      // border-right: 2px solid black;
+      height: 15px;
       line-height: 25px;
       font-size: 10px;
       background: white;
       text-align: center;
       color:rgba(0, 0, 0, 1);
+      text-indent: 0px;
     }
   }
 
@@ -55,6 +58,7 @@ section {
     li.cell {
       background: green;
       display: block;
+      text-align: right;
     }
   }
 }
@@ -64,8 +68,8 @@ section {
 section.outputs {
   float: left;
   display: inline-block;
-  width: 200px;
-  height: calc(30 * 15px);
+  width: 160px;
+  min-height:200px;
   position: relative;
   border: 3px solid tomato;
   margin-left: 20px;
@@ -73,10 +77,18 @@ section.outputs {
   font-size: 10px;
   h2 {
     font-size: 12px;
-    margin-top: 10px;
+    margin: 20px 0px;
     text-align: center;
     display: block;
     text-transform: uppercase;
+  }
+  ul {
+    margin: 10px 0px;
+    text-align: center;
+    list-style: none;
+    li {
+      font-size: 12px;
+    }
   }
 }
 section.forms {

@@ -18,7 +18,7 @@
         </ul> -->
 
         <ul ng-repeat="row in main.rows track by $index" class="row{{ main.height - 1 - $index}}">
-          <li ng-repeat="cell in main.columns track by $index" class="cell" id="x{{ $index + 10 }}y{{ main.height + 9 - $parent.$index }}" ng-style="$index === 0 && {'color':'rgba(0, 0, 0, 1)'} ">{{ $parent.$index }}</li>
+          <li ng-repeat="cell in main.columns track by $index" class="cell" id="x{{ $index + 10 }}y{{ main.height + 9 - $parent.$index }}" ng-style="$index === 0 && {'color':'rgba(0, 0, 0, 1)'} ">{{ main.height - 1 - $parent.$index }}</li>
         </ul>
 
         <!-- <ul class="yAxis" ng-repeat="row in main.rows track by $index">
@@ -33,7 +33,11 @@
       </section>
 
       <section class="outputs" id="hello">
-        <h2>   Output Co-ordinates</h2>
+        <h2>   Output <br> Co-ordinates</h2>
+
+        <ul>
+          <li ng-repeat="output in main.outputs "> {{ output }}</li>
+        </ul>
       </section>
 
       <section class="forms">

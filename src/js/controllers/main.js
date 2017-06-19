@@ -14,6 +14,7 @@ function MainCtrl() {
   vm.activeRobot = null;
   vm.moveInput = null;
   vm.direction = null;
+  vm.outputs = [];
   const compassArray = ['N','E','S','W'];
   const directionArray = [
                           [0, 1], // N
@@ -76,8 +77,8 @@ function MainCtrl() {
       if( letter === 'F') {
         xCord += directionArray[index][0];
         yCord += directionArray[index][1];
-        console.log(xCord);
-        console.log(yCord);
+        // console.log(xCord);
+        // console.log(yCord);
         newRefs = 'x'.concat(xCord, 'y', yCord);
       } else if ( letter === 'R') {
         if (index === 3) index = -1;
@@ -87,8 +88,13 @@ function MainCtrl() {
         vm.direction = compassArray[index - 1];
       }
     });
-
-    console.log(newRefs);
+    const outputString =(xCord-10).toString() + (yCord-10).toString() + vm.direction;
+    // console.log(xCord - 10);
+    // console.log(yCord - 10);
+    // console.log(vm.direction);
+    vm.outputs.push(outputString);
+    console.log(outputString);
+    console.log(vm.outputs);
     const newActiveRobot = angular.element( document.querySelector( `#${newRefs}` ));
     newActiveRobot.addClass('activeRobot');
 
